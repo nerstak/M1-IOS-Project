@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570B443F260B8AB100929887 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B443E260B8AB100929887 /* ActivityView.swift */; };
+		570B4444260B900E00929887 /* DummyActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B4443260B900E00929887 /* DummyActivity.swift */; };
 		821B95CF2600F7EA0084F792 /* BigEventApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B95CE2600F7EA0084F792 /* BigEventApp.swift */; };
 		821B95D12600F7EA0084F792 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B95D02600F7EA0084F792 /* ContentView.swift */; };
 		821B95D32600F7EB0084F792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821B95D22600F7EB0084F792 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		570B443E260B8AB100929887 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		570B4443260B900E00929887 /* DummyActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyActivity.swift; sourceTree = "<group>"; };
 		821B95CB2600F7EA0084F792 /* BigEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		821B95CE2600F7EA0084F792 /* BigEventApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEventApp.swift; sourceTree = "<group>"; };
 		821B95D02600F7EA0084F792 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,9 +101,11 @@
 			children = (
 				821B95CE2600F7EA0084F792 /* BigEventApp.swift */,
 				821B95D02600F7EA0084F792 /* ContentView.swift */,
+				570B443E260B8AB100929887 /* ActivityView.swift */,
 				821B95D22600F7EB0084F792 /* Assets.xcassets */,
 				821B95D72600F7EB0084F792 /* Info.plist */,
 				821B95D42600F7EB0084F792 /* Preview Content */,
+				570B4443260B900E00929887 /* DummyActivity.swift */,
 			);
 			path = BigEvent;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			files = (
 				821B95D12600F7EA0084F792 /* ContentView.swift in Sources */,
 				821B95CF2600F7EA0084F792 /* BigEventApp.swift in Sources */,
+				570B443F260B8AB100929887 /* ActivityView.swift in Sources */,
+				570B4444260B900E00929887 /* DummyActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

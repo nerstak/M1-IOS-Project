@@ -11,7 +11,7 @@ import SwiftUI
 struct BigEventApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ActivityView()
         }
     }
 }
