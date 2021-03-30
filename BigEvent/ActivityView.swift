@@ -20,6 +20,7 @@ struct DummyActivity: Decodable {
 
 struct ActivityView: View {
     @State private var activity: DummyActivity
+    @State private var clickable: Bool
     
     private var formatter: DateFormatter
     
@@ -32,7 +33,9 @@ struct ActivityView: View {
                 HStack(spacing: 10) {
                     Text(activity.location).italic()
                     Spacer()
-                    Text(formatter.string(from: activity.timeStart)).fontWeight(.light)
+                    Text(formatter.string(from: activity.timeStart)).fontWeight(.light) +
+                    Text(" - ") +
+                    Text(formatter.string(from: activity.timeEnd)).fontWeight(.light)
                 }
             }.padding()
             .background(Color.purple.opacity(0.8))
@@ -47,15 +50,25 @@ struct ActivityView: View {
             .frame(width: 40, height: 15)
             .offset(x: geometry.size.width - 40, y: 5)
             .opacity(activity.timeEnd > Date() ? 1 : 0)
+        }.onTapGesture {
+            openDetails()
         }
         
     }
     
-    init(activity: DummyActivity) {
+    func openDetails() {
+        // View is used inside homepage and details page: we only want it to be clickable inside homepage
+        if(clickable) {
+            print("Opened")
+        }
+    }
+    
+    init(activity: DummyActivity, clickable: Bool) {
         formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         
         _activity = State(initialValue: activity)
+        _clickable = State(initialValue: clickable)
     }
 }
 
@@ -63,6 +76,6 @@ struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
         let now  = Date()
         let a: DummyActivity = DummyActivity(name: "Workshop for security novices", topic: "Wood & Steel", type: "Workshop", location: "Emerald Room", timeStart: now.addingTimeInterval(-3600), timeEnd: now.addingTimeInterval(3600))
-        ActivityView(activity: a)
+        ActivityView(activity: a, clickable: true)
     }
 }
