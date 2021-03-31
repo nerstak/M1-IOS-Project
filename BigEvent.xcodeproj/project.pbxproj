@@ -15,6 +15,7 @@
 		821B95D62600F7EB0084F792 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821B95D52600F7EB0084F792 /* Preview Assets.xcassets */; };
 		821B95E12600F7EB0084F792 /* BigEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B95E02600F7EB0084F792 /* BigEventTests.swift */; };
 		821B95EC2600F7EC0084F792 /* BigEventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B95EB2600F7EC0084F792 /* BigEventUITests.swift */; };
+		E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5120DB42614A587005A9DE4 /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		821B95E72600F7EC0084F792 /* BigEventUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BigEventUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		821B95EB2600F7EC0084F792 /* BigEventUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigEventUITests.swift; sourceTree = "<group>"; };
 		821B95ED2600F7EC0084F792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5120DB42614A587005A9DE4 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				821B95D72600F7EB0084F792 /* Info.plist */,
 				821B95D42600F7EB0084F792 /* Preview Content */,
 				57E957462613774C009CF81D /* SwiftUIView.swift */,
+				E5120DB42614A587005A9DE4 /* PersonView.swift */,
 			);
 			path = BigEvent;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */,
 				821B95D12600F7EA0084F792 /* ContentView.swift in Sources */,
 				821B95CF2600F7EA0084F792 /* BigEventApp.swift in Sources */,
 				570B443F260B8AB100929887 /* ActivityView.swift in Sources */,
