@@ -1,10 +1,3 @@
-//
-//  ActivityView.swift
-//  BigEvent
-//
-//  Created by user188893 on 3/24/21.
-//
-
 import SwiftUI
 
 struct DummyActivity: Decodable {
@@ -15,7 +8,26 @@ struct DummyActivity: Decodable {
     var timeStart: Date
     var timeEnd: Date
 
+    func getColor() -> Color {
+        switch type {
+        case "Keynote":
+            return Color.orange
+        case "Panel":
+            return Color.blue
+        case "Workshop":
+            return Color.pink
+        case "Breakout session":
+            return Color.purple
+        case "Meal":
+            return Color.yellow
+        case "Networking":
+            return Color.green
+        default:
+            return Color.gray
+        }
+    }
 }
+
 
 
 struct ActivityView: View {
@@ -38,7 +50,7 @@ struct ActivityView: View {
                     Text(formatter.string(from: activity.timeEnd)).fontWeight(.light)
                 }
             }.padding()
-            .background(Color.purple.opacity(0.8))
+            .background(activity.getColor().opacity(0.8))
             .cornerRadius(15.0)
             .padding(.all, 10)
         
