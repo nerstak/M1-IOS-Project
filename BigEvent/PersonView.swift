@@ -25,16 +25,25 @@ struct PersonView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 10) {
-                VStack(alignment: .leading) {
-                    Text(activity.name).font(.title3).fontWeight(.semibold).padding(.bottom, 2)
-                    Text(activity.email).italic()
-                    Text(activity.phone).font(.body)
-                }
-                Spacer()
-                VStack(alignment: .leading) {
-                    Text(activity.company).font(.body)
-                    Text(activity.role).font(.body)
+            VStack(alignment: .leading) {
+                Text(activity.name).font(.title3).fontWeight(.semibold).padding(.bottom, 2)
+                
+                HStack(alignment: .top, spacing: 10) {
+                    VStack(alignment: .leading) {
+                        HStack() {
+                            Image(systemName: "envelope")
+                            Text(activity.email).italic()
+                        }
+                        HStack() {
+                            Image(systemName: "phone")
+                            Text(activity.phone).font(.body)
+                        }
+                    }
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        Text(activity.company).font(.body).fontWeight(.semibold)
+                        Text(activity.role).italic()
+                    }
                 }
             }.padding()
             .background(activity.getColor().opacity(0.8))
@@ -51,7 +60,7 @@ struct PersonView: View {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        let a: DummyPerson = DummyPerson(name: "John Smith", speaker: true, email: "john.smith@gmail.com", phone: "(123) 456-7890", company: "Home SecurTech", role: "Head of Marketing:")
+        let a: DummyPerson = DummyPerson(name: "John Smith", speaker: true, email: "john.smith@gmail.com", phone: "(123) 456-7890", company: "Home SecurTech", role: "Head of Marketing")
         PersonView(activity: a)
     }
 }
