@@ -28,21 +28,21 @@ struct PersonView: View {
             VStack(alignment: .leading) {
                 Text(activity.name).font(.title3).fontWeight(.semibold).padding(.bottom, 2)
                 
-                HStack(alignment: .top, spacing: 10) {
+                HStack(alignment: .top, spacing: 8) {
                     VStack(alignment: .leading) {
                         HStack() {
                             Image(systemName: "envelope")
-                            Text(activity.email).italic()
-                        }
+                            Text(activity.email).italic().minimumScaleFactor(0.7).lineLimit(1)
+                        }.padding(.bottom, -3.8)
                         HStack() {
                             Image(systemName: "phone")
-                            Text(activity.phone).font(.body)
+                            Text(activity.phone).font(.body).minimumScaleFactor(0.7).lineLimit(1)
                         }
-                    }
+                    }.frame(minWidth: geometry.size.width * 0.5)
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(activity.company).font(.body).fontWeight(.semibold)
-                        Text(activity.role).italic()
+                        Text(activity.company).font(.body).fontWeight(.semibold).minimumScaleFactor(0.7).lineLimit(1).padding(.bottom, -6.8)
+                        Text(activity.role).italic().minimumScaleFactor(0.7).lineLimit(1)
                     }
                 }
             }.padding()
