@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var schedules: [Schedule]?
+    @State var schedules: [Activity]?
     
     init() {
     }

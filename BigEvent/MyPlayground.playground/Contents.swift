@@ -48,8 +48,8 @@ class RequestFactory : RequestFactoryProtocol {
             if let data = data, error == nil {
                 if let responseHttp = response as? HTTPURLResponse,
                    responseHttp.statusCode == 200 {
-                    if let response = try? JSONDecoder().decode(Record.self,from: data) {
-                        callback(response.records)
+                    if let response = try? JSONDecoder().decode(Schedule.self,from: data) {
+                        callback(response.schedule)
                     }
                     else {
                         print("Decode error")

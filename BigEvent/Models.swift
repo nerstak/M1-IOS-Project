@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Record: Codable {
-    let records: [Schedule]
+struct Schedule: Codable {
+    let records: [Activity]
 }
 
-struct Schedule: Codable, Identifiable {
+struct Activity: Codable, Identifiable {
     let id: String
-    var fields: ScheduleFields
+    var fields: ActivityFields
 }
 
-struct ScheduleFields: Codable {
+struct ActivityFields: Codable {
     var topics: [String]?
     let type: String
     let activity: String
@@ -33,6 +34,25 @@ struct ScheduleFields: Codable {
         case end = "End"
         case locationId = "Location"
         case speakerIds = "Speaker(s)"
+    }
+
+    func getColor() -> Color {
+        switch type {
+        case "Keynote":
+            return Color.orange
+        case "Panel":
+            return Color.blue
+        case "Workshop":
+            return Color.pink
+        case "Breakout session":
+            return Color.purple
+        case "Meal":
+            return Color.yellow
+        case "Networking":
+            return Color.green
+        default:
+            return Color.gray
+        }
     }
 }
 

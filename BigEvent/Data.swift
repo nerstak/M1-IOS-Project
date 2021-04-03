@@ -8,14 +8,14 @@
 import Foundation
 
 class Api {
-    func getSchedules(completion: @escaping ([Schedule]) -> ()) {
+    func getSchedules(completion: @escaping ([Activity]) -> ()) {
 
         guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Schedule?view=Full%20schedule&api_key=keyuGTkgeGQoidxs6") else {
             return
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Record.self, from: data!)
+            let response = try! JSONDecoder().decode(Schedule.self, from: data!)
             DispatchQueue.main.async {
                 completion(response.records)
             }
