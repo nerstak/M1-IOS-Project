@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct DummyActivity: Decodable {
+struct DummyActivity: Decodable, Identifiable {
+    var id: String
     var name: String
     var topic: String
     var type: String
@@ -32,7 +33,6 @@ struct DummyActivity: Decodable {
 
 struct ActivityView: View {
     @State private var activity: DummyActivity
-    @State private var clickable: Bool
     
     private var formatter: DateFormatter
     
@@ -62,25 +62,15 @@ struct ActivityView: View {
             .frame(width: 40, height: 15)
             .offset(x: geometry.size.width - 40, y: 5)
             .opacity(activity.timeEnd > Date() ? 1 : 0)
-        }.onTapGesture {
-            openDetails()
         }
         
     }
     
-    func openDetails() {
-        // View is used inside homepage and details page: we only want it to be clickable inside homepage
-        if(clickable) {
-            print("Opened")
-        }
-    }
-    
-    init(activity: DummyActivity, clickable: Bool) {
+    init(activity: DummyActivity) {
         formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         
         _activity = State(initialValue: activity)
-        _clickable = State(initialValue: clickable)
     }
 }
 
@@ -89,8 +79,7 @@ struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
 
         let now  = Date()
-        let a: DummyActivity = DummyActivity(name: "Workshop for security novices", topic: "Wood & Steel", type: "Workshop", location: "Emerald Room", timeStart: now.addingTimeInterval(-3600), timeEnd: now.addingTimeInterval(3600))
-        
-        ActivityView(activity: a, clickable: true)
+        let a: DummyActivity = DummyActivity(id: "0", name: "Workshop for security novices", topic: "Wood & Steel", type: "Workshop", location: "Emerald Room", timeStart: now.addingTimeInterval(-3600), timeEnd: now.addingTimeInterval(3600))
+        ActivityView(activity: a)
     }
 }
