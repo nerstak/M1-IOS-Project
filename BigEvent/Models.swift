@@ -11,7 +11,7 @@ struct Record: Codable {
     let records: [Schedule]
 }
 
-struct Schedule: Codable {
+struct Schedule: Codable, Identifiable {
     let id: String
     var fields: ScheduleFields
 }
@@ -45,23 +45,5 @@ struct TopicFields: Codable {
 
     enum CodingKeys: String, CodingKey {
         case topic = "Topic / theme"
-    }
-}
-
-extension ScheduleFields {
-
-}
-
-extension Schedule {
-    mutating func getTopicsNames() {
-        if let topics = self.fields.topics {
-            for topic in topics {
-                RequestFactory().getTopic(idTopic: topic) { s in
-                    self.fields.topics = s
-                }
-            }
-        } else {
-            print("An error occured")
-        }
     }
 }

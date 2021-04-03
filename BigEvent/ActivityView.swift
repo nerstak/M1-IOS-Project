@@ -85,9 +85,12 @@ struct ActivityView: View {
 }
 
 struct ActivityView_Previews: PreviewProvider {
+    
     static var previews: some View {
+
         let now  = Date()
         let a: DummyActivity = DummyActivity(name: "Workshop for security novices", topic: "Wood & Steel", type: "Workshop", location: "Emerald Room", timeStart: now.addingTimeInterval(-3600), timeEnd: now.addingTimeInterval(3600))
+        
         ActivityView(activity: a, clickable: true)
     }
 }
