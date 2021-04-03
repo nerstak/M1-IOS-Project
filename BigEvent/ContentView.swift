@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Text("Homepage") // Replace this by HomepageView
+            CalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                 }
