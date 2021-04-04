@@ -1,93 +1,75 @@
 import SwiftUI
 
-struct DummyActivity: Decodable {
-    var name: String
-    var topic: String
-    var type: String
-    var location: String
-    var timeStart: Date
-    var timeEnd: Date
 
-    func getColor() -> Color {
-        switch type {
-        case "Keynote":
-            return Color.orange
-        case "Panel":
-            return Color.blue
-        case "Workshop":
-            return Color.pink
-        case "Breakout session":
-            return Color.purple
-        case "Meal":
-            return Color.yellow
-        case "Networking":
-            return Color.green
-        default:
-            return Color.gray
-        }
-    }
-}
-
-
-
+/// Activity and its main informations
 struct ActivityView: View {
-    @State private var activity: DummyActivity
-    @State private var clickable: Bool
+    @State private var activity: Activity
+    @State private var topic: String = ""
     
-    private var formatter: DateFormatter
-    
+    private var df = DateForm()
+
     var body: some View {
+
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Text(activity.name).font(.title2).fontWeight(.semibold).padding(.bottom, 2)
-                Text(activity.topic).font(.callout)
-                Text(activity.type).font(.body)
+                // Name of activity
+                Text(activity.fields.activity).font(.title2).fontWeight(.semibold).padding(.bottom, 2)
+                
+                // Topic (blank if none)
+                Text(topic).font(.callout)
+                    .onAppear {
+                        if let topics =  activity.fields.topics  {
+                            Api().getTopics(idTopic: topics[0]) { t in
+                                self.topic = t
+                            }
+                        }
+                    }
+                
+                // Type of activity (correspond to color too!)
+                Text(activity.fields.type).font(.body)
+                
                 HStack(spacing: 10) {
-                    Text(activity.location).italic()
+                    // TODO: Get name of location instead of just displaying the id
+                    Text(activity.fields.locationId[0]).italic()
                     Spacer()
-                    Text(formatter.string(from: activity.timeStart)).fontWeight(.light) +
-                    Text(" - ") +
-                    Text(formatter.string(from: activity.timeEnd)).fontWeight(.light)
+                    Text(df.convertToHoursMinutes(string: activity.fields.start)).fontWeight(.light) +
+                            Text(" - ") +
+                            Text(df.convertToHoursMinutes(string: activity.fields.end)).fontWeight(.light)
                 }
-            }.padding()
-            .background(activity.getColor().opacity(0.8))
+            }
+            // Styling our box 😎
+            .padding()
+            // Color matching type of activity
+            .background(activity.fields.getColor().opacity(0.8))
             .cornerRadius(15.0)
             .padding(.all, 10)
-        
+
+            // ZStack for small notification "Live"
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).foregroundColor(.red)
-                
+
                 Text("Live").foregroundColor(.white)
             }
             .frame(width: 40, height: 15)
             .offset(x: geometry.size.width - 40, y: 5)
-            .opacity(activity.timeEnd > Date() ? 1 : 0)
-        }.onTapGesture {
-            openDetails()
-        }
-        
-    }
-    
-    func openDetails() {
-        // View is used inside homepage and details page: we only want it to be clickable inside homepage
-        if(clickable) {
-            print("Opened")
+            // We only display notification "Live" if we are between end & start date
+            .opacity(df.convertToDate(string: activity.fields.end) > Date() &&
+                        df.convertToDate(string: activity.fields.start) < Date()
+                        ? 1 : 0)
         }
     }
-    
-    init(activity: DummyActivity, clickable: Bool) {
-        formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        
+
+    init(activity: Activity) {
         _activity = State(initialValue: activity)
-        _clickable = State(initialValue: clickable)
     }
 }
 
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
+        let df = DateForm()
         let now  = Date()
-        let a: DummyActivity = DummyActivity(name: "Workshop for security novices", topic: "Wood & Steel", type: "Workshop", location: "Emerald Room", timeStart: now.addingTimeInterval(-3600), timeEnd: now.addingTimeInterval(3600))
-        ActivityView(activity: a, clickable: true)
+        let a = ActivityFields(topics: ["Wood & Steel"], type: "Workshop",activity: "Workshop for security novices", start: df.convertToString(date: now.addingTimeInterval(-3600)) , end:  df.convertToString(date: now.addingTimeInterval(3600)), locationId: ["Emerald Room"],speakerIds: ["0"])
+        
+        ActivityView(activity: Activity(id: "0", fields: a))
     }
 }

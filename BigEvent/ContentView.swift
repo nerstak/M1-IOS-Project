@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+
+/// Main view of application
 struct ContentView: View {
+    @State var schedules: [Activity]?
+    
+    init() {
+    }
+
     var body: some View {
         TabView {
-            Text("Homepage") // Replace this by HomepageView
+            CalendarView()
                 .tabItem {
                     Image(systemName: "calendar")
                 }
@@ -25,6 +32,8 @@ struct ContentView: View {
                 }
         }
     }
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -32,3 +41,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
