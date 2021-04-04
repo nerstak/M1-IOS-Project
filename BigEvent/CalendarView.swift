@@ -5,16 +5,25 @@ struct CalendarView: View {
 
     var body: some View {
         NavigationView {
-            List(schedule) { activity in
-                NavigationLink(destination: DetailsView(activity: activity)) {
-                    ActivityView(activity: activity)
+            ScrollView {
+                VStack {
+                        ForEach(schedule) { a in
+                            NavigationLink(destination: DetailsView(activity: a)){
+                                                            ActivityView(activity: a).padding().frame(height: 150)
+                                                        }
+                                                        .buttonStyle(PlainButtonStyle())
+                        
+                    }
                 }
-                        .buttonStyle(PlainButtonStyle())
-            }.onAppear {
-                Api().getSchedules { schedule in
-                    self.schedule = schedule
+                .onAppear {
+                    Api().getSchedules {schedule in
+                        self.schedule = schedule
+                    }
                 }
             }
+            .navigationBarTitle(Text("Calendar"), displayMode: .inline)
+            
+            
         }
     }
 }
