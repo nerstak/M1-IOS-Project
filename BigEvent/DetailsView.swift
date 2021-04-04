@@ -4,19 +4,21 @@ struct DetailsView: View {
     @State private var activity: Activity
     
     var body: some View {
-        VStack(alignment: .center) {
-            Text("Activity informations").font(.title)
-            ActivityView(activity: activity).frame(height: 150)
-            if let speakers = getSpeakers() // Replace his function with API call
-            {
-                if speakers.count != 0 {
-                    Text("Speakers").font(.title)
-                    ForEach(speakers) { speaker in
-                        PersonView(activity: speaker).frame(height: 150)
+        ScrollView {
+            VStack(alignment: .center) {
+                Text("Activity informations").font(.title)
+                ActivityView(activity: activity).frame(height: 150)
+                if let speakers = getSpeakers() // Replace his function with API call
+                {
+                    if speakers.count != 0 {
+                        Text("Speakers").font(.title)
+                        ForEach(speakers) { speaker in
+                            PersonView(activity: speaker).frame(height: 150)
+                        }
                     }
                 }
+                Spacer()
             }
-            Spacer()
         }
     }
     
