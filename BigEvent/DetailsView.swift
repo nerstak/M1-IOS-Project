@@ -9,9 +9,11 @@ struct DetailsView: View {
             ActivityView(activity: activity).frame(height: 150)
             if let speakers = getSpeakers() // Replace his function with API call
             {
-                Text("Speakers").font(.title)
-                ForEach(speakers) { speaker in
-                    PersonView(activity: speaker).frame(height: 150)
+                if speakers.count != 0 {
+                    Text("Speakers").font(.title)
+                    ForEach(speakers) { speaker in
+                        PersonView(activity: speaker).frame(height: 150)
+                    }
                 }
             }
             Spacer()
@@ -23,7 +25,10 @@ struct DetailsView: View {
     }
     
     func getSpeakers() -> [DummyPerson] {
-        return [DummyPerson(id: "1", name: "John Smith", speaker: true, email: "john.smith@gmail.com", phone: "(123) 456-7890", company: "Home SecurTech", role: "Head of Marketing")]
+        if let _ = activity.fields.speakerIds {
+            return [DummyPerson(id: "1", name: "John Smith", speaker: true, email: "john.smith@gmail.com", phone: "(123) 456-7890", company: "Home SecurTech", role: "Head of Marketing")]
+        }
+        return []
     }
 }
 

@@ -2,44 +2,63 @@ import SwiftUI
 
 struct ActivityView: View {
     @State private var activity: Activity
+    @State private var topic: String = ""
+    
     private var df = DateForm()
 
     var body: some View {
 
         GeometryReader { geometry in
             VStack(alignment: .leading) {
+                // Name of activity
                 Text(activity.fields.activity).font(.title2).fontWeight(.semibold).padding(.bottom, 2)
-                // Text(activity.topic).font(.callout)
+                
+                // Topic (blank if none)
+                Text(topic).font(.callout)
+                    .onAppear {
+                        if let topics =  activity.fields.topics  {
+                            Api().getTopics(idTopic: topics[0]) { t in
+                                self.topic = t
+                            }
+                        }
+                    }
+                
+                // Type of activity (correspond to color too!)
                 Text(activity.fields.type).font(.body)
+                
                 HStack(spacing: 10) {
+                    // TODO: Get name of location instead of just displaying the id
                     Text(activity.fields.locationId[0]).italic()
                     Spacer()
                     Text(df.convertToHoursMinutes(string: activity.fields.start)).fontWeight(.light) +
                             Text(" - ") +
                             Text(df.convertToHoursMinutes(string: activity.fields.end)).fontWeight(.light)
                 }
-            }.padding()
-                    .background(activity.fields.getColor().opacity(0.8))
-                    .cornerRadius(15.0)
-                    .padding(.all, 10)
+            }
+            // Styling our box 😎
+            .padding()
+            // Color matching type of activity
+            .background(activity.fields.getColor().opacity(0.8))
+            .cornerRadius(15.0)
+            .padding(.all, 10)
 
+            // ZStack for small notification "Live"
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/).foregroundColor(.red)
 
                 Text("Live").foregroundColor(.white)
             }
-                    .frame(width: 40, height: 15)
-                    .offset(x: geometry.size.width - 40, y: 5)
-                    .opacity(df.convertToDate(string: activity.fields.end) > Date() &&
-                                df.convertToDate(string: activity.fields.start) < Date()
+            .frame(width: 40, height: 15)
+            .offset(x: geometry.size.width - 40, y: 5)
+            // We only display notification "Live" if we are between end & start date
+            .opacity(df.convertToDate(string: activity.fields.end) > Date() &&
+                        df.convertToDate(string: activity.fields.start) < Date()
                         ? 1 : 0)
         }
     }
 
     init(activity: Activity) {
         _activity = State(initialValue: activity)
-        print(Date())
-        print(activity.fields.end)
     }
 }
 
