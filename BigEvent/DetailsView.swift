@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// Details of an activity
 struct DetailsView: View {
     @State private var activity: Activity
     @State private var title: String
@@ -7,8 +9,11 @@ struct DetailsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {
+                // Main informations
                 Text("Activity informations").font(.title)
                 ActivityView(activity: activity).frame(height: 150)
+                
+                // Speakers for this activity
                 if let speakers = getSpeakers() // Replace his function with API call
                 {
                     if speakers.count != 0 {
@@ -28,6 +33,9 @@ struct DetailsView: View {
         _title = State(initialValue: title)
     }
     
+    
+    /// Generate a list of dummy speakers
+    /// - Returns: list of dummy person
     func getSpeakers() -> [DummyPerson] {
         if let _ = activity.fields.speakerIds {
             return [DummyPerson(id: "1", name: "John Smith", speaker: true, email: "john.smith@gmail.com", phone: "(123) 456-7890", company: "Home SecurTech", role: "Head of Marketing")]

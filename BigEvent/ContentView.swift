@@ -8,6 +8,7 @@
 import SwiftUI
 
 
+/// Main view of application
 struct ContentView: View {
     @State var schedules: [Activity]?
     

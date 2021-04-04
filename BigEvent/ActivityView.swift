@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// Activity and its main informations
 struct ActivityView: View {
     @State private var activity: Activity
     @State private var topic: String = ""
