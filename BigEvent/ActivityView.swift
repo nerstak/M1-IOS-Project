@@ -2,8 +2,7 @@ import SwiftUI
 
 struct ActivityView: View {
     @State private var activity: Activity
-
-    private var formatter: DateFormatter
+    private var df = DateForm()
 
     var body: some View {
 
@@ -15,9 +14,9 @@ struct ActivityView: View {
                 HStack(spacing: 10) {
                     Text(activity.fields.locationId[0]).italic()
                     Spacer()
-                    Text(activity.fields.start).fontWeight(.light) +
+                    Text(df.convertToHoursMinutes(string: activity.fields.start)).fontWeight(.light) +
                             Text(" - ") +
-                            Text(activity.fields.end).fontWeight(.light)
+                            Text(df.convertToHoursMinutes(string: activity.fields.end)).fontWeight(.light)
                 }
             }.padding()
                     .background(activity.fields.getColor().opacity(0.8))
@@ -31,14 +30,25 @@ struct ActivityView: View {
             }
                     .frame(width: 40, height: 15)
                     .offset(x: geometry.size.width - 40, y: 5)
-                    //.opacity(formatter.date(from: activity.fields.end)! > Date() ? 1 : 0)
-        }//.padding(.top, 120)
+                    .opacity(df.convertToDate(string: activity.fields.end) > Date() &&
+                                df.convertToDate(string: activity.fields.start) < Date()
+                        ? 1 : 0)
+        }
     }
 
     init(activity: Activity) {
-        formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-
         _activity = State(initialValue: activity)
+        print(Date())
+        print(activity.fields.end)
+    }
+}
+
+struct ActivityView_Previews: PreviewProvider {
+    static var previews: some View {
+        let df = DateForm()
+        let now  = Date()
+        let a = ActivityFields(topics: ["Wood & Steel"], type: "Workshop",activity: "Workshop for security novices", start: df.convertToString(date: now.addingTimeInterval(-3600)) , end:  df.convertToString(date: now.addingTimeInterval(3600)), locationId: ["Emerald Room"],speakerIds: ["0"])
+        
+        ActivityView(activity: Activity(id: "0", fields: a))
     }
 }
