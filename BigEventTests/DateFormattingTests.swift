@@ -39,4 +39,12 @@ class DateFormattingTests: XCTest {
         // Checking conversion with wrong formatting
         XCTAssertNotEqual("04-16-2021T23:42:00.000Z", df.convertToString(date: date))
     }
+    
+    func testConvertHoursMinutes() throws {
+        XCTAssertEqual("23:42", df.convertToHoursMinutes(string: "2021-04-16T23:42:00.000Z"))
+    }
+    
+    func testConvertSimpleDate() throws {
+        XCTAssertEqual("16/04/2021", df.convertToSimpleDate(string: "2021-04-16T23:42:00.000Z"))
+    }
 }

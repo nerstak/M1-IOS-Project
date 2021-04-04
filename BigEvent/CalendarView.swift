@@ -8,6 +8,7 @@ struct ActivitiesAt{
 struct CalendarView: View {
     @State var schedules: [ActivitiesAt] = []
     private var df = DateForm()
+    let weekFormatter = DateFormatter()
 
     var body: some View {
         NavigationView {
@@ -15,9 +16,11 @@ struct CalendarView: View {
                 VStack {
                     ForEach(schedules, id: \.date) { day in
                         Divider()
-                        Text(day.date).font(.title)
+                        let stringDate = weekFormatter.string(from: df.simpleDateFormatter.date(from: day.date)!)
+                            + " - " + day.date
+                        Text(stringDate).font(.title)
                         ForEach(day.activities) { a in
-                            NavigationLink(destination: DetailsView(activity: a)) {
+                            NavigationLink(destination: DetailsView(activity: a, title: stringDate)) {
                                                             ActivityView(activity: a).padding().frame(height: 150)
                                                         }
                                                         .buttonStyle(PlainButtonStyle())
@@ -53,9 +56,11 @@ struct CalendarView: View {
                 }
             }
             .navigationBarTitle(Text("Calendar"), displayMode: .inline)
-            
-            
         }
+    }
+    
+    init() {
+        weekFormatter.dateFormat = "EEEE"
     }
 }
 

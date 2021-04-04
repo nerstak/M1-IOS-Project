@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DetailsView: View {
     @State private var activity: Activity
+    @State private var title: String
     
     var body: some View {
         ScrollView {
@@ -19,11 +20,12 @@ struct DetailsView: View {
                 }
                 Spacer()
             }
-        }
+        }.navigationBarTitle(title, displayMode: .inline)
     }
     
-    init(activity: Activity) {
+    init(activity: Activity, title: String) {
         _activity = State(initialValue: activity)
+        _title = State(initialValue: title)
     }
     
     func getSpeakers() -> [DummyPerson] {
@@ -40,6 +42,6 @@ struct DetailsView_Previews: PreviewProvider {
         let now  = Date()
         let a = ActivityFields(topics: ["Wood & Steel"], type: "Workshop",activity: "Workshop for security novices", start: df.convertToString(date: now.addingTimeInterval(-3600)) , end:  df.convertToString(date: now.addingTimeInterval(3600)), locationId: ["Emerald Room"],speakerIds: ["0"])
 
-        DetailsView(activity: Activity(id: "0", fields: a))
+        DetailsView(activity: Activity(id: "0", fields: a), title:"Hey")
     }
 }
