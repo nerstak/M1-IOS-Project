@@ -32,7 +32,7 @@ struct ActivityView: View {
                     .frame(width: 40, height: 15)
                     .offset(x: geometry.size.width - 40, y: 5)
                     //.opacity(formatter.date(from: activity.fields.end)! > Date() ? 1 : 0)
-        }.padding(.top, 120)
+        }//.padding(.top, 120)
     }
 
     init(activity: Activity) {

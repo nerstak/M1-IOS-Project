@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		570B443F260B8AB100929887 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B443E260B8AB100929887 /* ActivityView.swift */; };
+		57BA3FAD261A0A2C00854362 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BA3FAC261A0A2C00854362 /* DateFormatting.swift */; };
 		57CA823E261895FD00B65AFE /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA823D261895FD00B65AFE /* DetailsView.swift */; };
 		57CA82462618A53900B65AFE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA82452618A53900B65AFE /* CalendarView.swift */; };
 		57E957472613774C009CF81D /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E957462613774C009CF81D /* SwiftUIView.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		570B443E260B8AB100929887 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		57BA3FAC261A0A2C00854362 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		57CA823D261895FD00B65AFE /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		57CA82452618A53900B65AFE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		57E957462613774C009CF81D /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				82AB6FC22618BF6B00A89051 /* Data.swift */,
 				E5120DB42614A587005A9DE4 /* PersonView.swift */,
 				57CA823D261895FD00B65AFE /* DetailsView.swift */,
+				57BA3FAC261A0A2C00854362 /* DateFormatting.swift */,
 			);
 			path = BigEvent;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				821B95CF2600F7EA0084F792 /* BigEventApp.swift in Sources */,
 				570B443F260B8AB100929887 /* ActivityView.swift in Sources */,
 				57E957472613774C009CF81D /* SwiftUIView.swift in Sources */,
+				57BA3FAD261A0A2C00854362 /* DateFormatting.swift in Sources */,
 				57CA823E261895FD00B65AFE /* DetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
