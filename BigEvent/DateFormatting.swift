@@ -15,7 +15,6 @@ struct DateForm {
         RFC3339DateFormatter.locale = Locale(identifier: "fr_FR_POSIC")
         RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000Z"
         
-
         timeFormatter.dateFormat = "HH:mm"
     }
     
