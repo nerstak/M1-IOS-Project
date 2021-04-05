@@ -67,3 +67,93 @@ struct TopicFields: Codable {
         case topic = "Topic / theme"
     }
 }
+
+struct Location: Codable {
+    let id: String
+    var fields: LocationFields
+}
+
+struct LocationFields: Codable {
+    let spaceName: String
+
+    enum CodingKeys: String, CodingKey {
+        case spaceName = "Space name"
+    }
+}
+
+struct Persons: Codable {
+    let records: [Person]
+}
+
+struct Person: Codable, Identifiable {
+    let id: String
+    var fields: PersonFields
+}
+
+struct PersonFields: Codable {
+    var name: String
+    var role: String
+    var email: String
+    var phone: String
+    var company: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case name = "Name"
+        case role = "Role"
+        case email = "Email"
+        case phone = "Phone"
+        case company = "Company"
+    }
+
+    func isSpeaker() -> Bool {
+        return self.role == "Speaker";
+    }
+
+    func getColor() -> Color {
+        if (isSpeaker()) {
+            return Color.blue
+        } else {
+            return Color.pink
+        }
+
+    }
+}
+
+struct Company: Codable {
+    let id: String
+    var fields: CompanyFields
+}
+
+struct CompanyFields: Codable {
+    let company: String
+
+    enum CodingKeys: String, CodingKey {
+        case company = "Company"
+    }
+}
+
+struct Sponsors: Codable {
+    let records: [Sponsor]
+}
+
+struct Sponsor: Codable, Identifiable {
+    let id: String
+    var fields: SponsorFields
+}
+
+struct SponsorFields: Codable {
+    var previousSponsor: Bool
+    var company: String
+    var status: String
+    var sponsoredAmount: Int
+    var notes: String
+
+    enum CodingKeys: String, CodingKey {
+        case previousSponsor = "Previous sponsor"
+        case company = "Company"
+        case status = "Status"
+        case sponsoredAmount = "Sponsored amount"
+        case notes = "Notes"
+    }
+}
+
