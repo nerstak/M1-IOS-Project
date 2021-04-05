@@ -94,4 +94,18 @@ class Api {
         }.resume()
     }
 
+    func getSponsors(completion: @escaping ([Sponsor]) -> ()) {
+
+        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Sponsors?view=All%20sponsor%20companies?api_key=keyuGTkgeGQoidxs6") else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let response = try! JSONDecoder().decode(Sponsors.self, from: data!)
+            DispatchQueue.main.async {
+                completion(response.records)
+            }
+        }.resume()
+    }
+
 }

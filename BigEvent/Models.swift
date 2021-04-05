@@ -131,3 +131,29 @@ struct CompanyFields: Codable {
         case company = "Company"
     }
 }
+
+struct Sponsors: Codable {
+    let records: [Sponsor]
+}
+
+struct Sponsor: Codable, Identifiable {
+    let id: String
+    var fields: SponsorFields
+}
+
+struct SponsorFields: Codable {
+    var previousSponsor: Bool
+    var company: String
+    var status: String
+    var sponsoredAmount: Int
+    var notes: String
+
+    enum CodingKeys: String, CodingKey {
+        case previousSponsor = "Previous sponsor"
+        case company = "Company"
+        case status = "Status"
+        case sponsoredAmount = "Sponsored amount"
+        case notes = "Notes"
+    }
+}
+
