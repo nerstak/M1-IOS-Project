@@ -24,7 +24,7 @@ struct ActivityView: View {
                 Text(topic).font(.callout)
                         .onAppear {
                             if let topics = activity.fields.topics {
-                                Api().getTopics(idTopic: topics[0]) { t in
+                                Api().getTopic(idTopic: topics[0]) { t in
                                     self.topic = t
                                 }
                             }
@@ -36,7 +36,7 @@ struct ActivityView: View {
                 HStack(spacing: 10) {
                     Text(location ?? "").italic().onAppear {
                         Api().getLocation(idLocation: activity.fields.locationId[0]) { l in
-                            self.location = l.fields.spaceName
+                            self.location = l
                         }
                     }
                     Spacer()

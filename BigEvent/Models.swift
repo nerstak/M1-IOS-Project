@@ -80,3 +80,54 @@ struct LocationFields: Codable {
         case spaceName = "Space name"
     }
 }
+
+struct Persons: Codable {
+    let records: [Person]
+}
+
+struct Person: Codable, Identifiable {
+    let id: String
+    var fields: PersonFields
+}
+
+struct PersonFields: Codable {
+    var name: String
+    var role: String
+    var email: String
+    var phone: String
+    var company: [String]
+
+    enum CodingKeys: String, CodingKey {
+        case name = "Name"
+        case role = "Role"
+        case email = "Email"
+        case phone = "Phone"
+        case company = "Company"
+    }
+
+    func isSpeaker() -> Bool {
+        return self.role == "Speaker";
+    }
+
+    func getColor() -> Color {
+        if (isSpeaker()) {
+            return Color.blue
+        } else {
+            return Color.pink
+        }
+
+    }
+}
+
+struct Company: Codable {
+    let id: String
+    var fields: CompanyFields
+}
+
+struct CompanyFields: Codable {
+    let company: String
+
+    enum CodingKeys: String, CodingKey {
+        case company = "Company"
+    }
+}
