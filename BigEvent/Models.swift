@@ -67,3 +67,16 @@ struct TopicFields: Codable {
         case topic = "Topic / theme"
     }
 }
+
+struct Location: Codable {
+    let id: String
+    var fields: LocationFields
+}
+
+struct LocationFields: Codable {
+    let spaceName: String
+
+    enum CodingKeys: String, CodingKey {
+        case spaceName = "Space name"
+    }
+}

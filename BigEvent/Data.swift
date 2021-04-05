@@ -35,4 +35,18 @@ class Api {
             }
         }.resume()
     }
+
+    func getLocation(idLocation: String, completion: @escaping (Location) -> ()) {
+
+        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Event%20locations/\(idLocation)?api_key=keyuGTkgeGQoidxs6") else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            let response = try! JSONDecoder().decode(Location.self, from: data!)
+            DispatchQueue.main.async {
+                completion(response)
+            }
+        }.resume()
+    }
 }
