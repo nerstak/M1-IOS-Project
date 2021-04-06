@@ -15,9 +15,9 @@ struct PersonsView : View {
 
             // Displays view depending on picked value
             if(selection == 0) {
-                PersonListView(persons: attendees)
+                PersonListView(persons: attendees, title: "Attendees")
             } else {
-                PersonListView(persons: speakers)
+                PersonListView(persons: speakers, title: "Speakers")
             }
         }.onAppear{
             Api().getAttendees { personsList in

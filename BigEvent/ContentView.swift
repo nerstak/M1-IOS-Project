@@ -26,7 +26,7 @@ struct ContentView: View {
                     Image(systemName: "person.3")
                 
                 }
-            Text("Sponsors list") // Replace this by SponsorsView
+            SponsorsView()
                 .tabItem {
                     Image(systemName: "dollarsign.circle")
                 }

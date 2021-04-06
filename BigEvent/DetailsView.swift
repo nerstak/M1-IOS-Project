@@ -25,8 +25,7 @@ struct DetailsView: View {
                 // Speakers for this activity
 
                 if persons.count != 0 {
-                    Text("Speakers").font(.title)
-                    PersonListView(persons: persons)
+                    PersonListView(persons: persons, title: "Speakers")
                 }
                 Spacer()
             }

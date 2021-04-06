@@ -96,7 +96,7 @@ class Api {
 
     func getSponsors(completion: @escaping ([Sponsor]) -> ()) {
 
-        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Sponsors?view=All%20sponsor%20companies?api_key=keyuGTkgeGQoidxs6") else {
+        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Sponsors?view=All%20sponsor%20companies&api_key=keyuGTkgeGQoidxs6") else {
             return
         }
 
