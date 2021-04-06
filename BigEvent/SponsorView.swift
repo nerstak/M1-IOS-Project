@@ -7,11 +7,13 @@ struct SponsorView: View {
         GeometryReader { geometry in
             HStack(alignment: .center) {
                 Text(sponsor.fields.company).fontWeight(.semibold).lineLimit(1)
-                Text(sponsor.fields.status).italic()
-                
+                Spacer()
+                Text(sponsor.fields.status).italic().lineLimit(2)
+                // There is always an ammoint sponsored unless the status is a verbal commitment
                 if(sponsor.fields.status != "Verbal committment to sponsor"){
                     Text(String(sponsor.fields.sponsoredAmount!)).lineLimit(1)
                 }
+                //Fill the full width of the screen
             }.padding().frame(minWidth: 0,
                               maxWidth: .infinity,
                               alignment: .leading

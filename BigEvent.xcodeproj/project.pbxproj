@@ -25,6 +25,7 @@
 		E54B4E7D261CB9D700BC195E /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E7C261CB9D700BC195E /* PersonsView.swift */; };
 		E54B4E85261CD88900BC195E /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E84261CD88900BC195E /* PersonListView.swift */; };
 		E54B4E8A261CF4DA00BC195E /* SponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E89261CF4DA00BC195E /* SponsorView.swift */; };
+		E54B4E92261CFEDA00BC195E /* SponsorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E91261CFEDA00BC195E /* SponsorsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E54B4E7C261CB9D700BC195E /* PersonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsView.swift; sourceTree = "<group>"; };
 		E54B4E84261CD88900BC195E /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
 		E54B4E89261CF4DA00BC195E /* SponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorView.swift; sourceTree = "<group>"; };
+		E54B4E91261CFEDA00BC195E /* SponsorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				E54B4E89261CF4DA00BC195E /* SponsorView.swift */,
 				829CED95260B7C7500064B97 /* Models.swift */,
+				E54B4E91261CFEDA00BC195E /* SponsorsView.swift */,
 				829CED8D260B7BD200064B97 /* MyPlayground.playground */,
 				57CA82452618A53900B65AFE /* CalendarView.swift */,
 				821B95CE2600F7EA0084F792 /* BigEventApp.swift */,
@@ -302,6 +305,7 @@
 				82AB6FC32618BF6B00A89051 /* Data.swift in Sources */,
 				829CED96260B7C7500064B97 /* Models.swift in Sources */,
 				E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */,
+				E54B4E92261CFEDA00BC195E /* SponsorsView.swift in Sources */,
 				57CA82462618A53900B65AFE /* CalendarView.swift in Sources */,
 				E54B4E85261CD88900BC195E /* PersonListView.swift in Sources */,
 				821B95D12600F7EA0084F792 /* ContentView.swift in Sources */,
