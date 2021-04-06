@@ -38,6 +38,16 @@
                ReferencedContainer = "container:BigEvent.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "821B95E62600F7EC0084F792"
+               BuildableName = "BigEventUITests.xctest"
+               BlueprintName = "BigEventUITests"
+               ReferencedContainer = "container:BigEvent.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
