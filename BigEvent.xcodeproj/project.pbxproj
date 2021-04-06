@@ -24,6 +24,7 @@
 		E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5120DB42614A587005A9DE4 /* PersonView.swift */; };
 		E54B4E7D261CB9D700BC195E /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E7C261CB9D700BC195E /* PersonsView.swift */; };
 		E54B4E85261CD88900BC195E /* PersonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E84261CD88900BC195E /* PersonListView.swift */; };
+		E54B4E8A261CF4DA00BC195E /* SponsorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54B4E89261CF4DA00BC195E /* SponsorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E5120DB42614A587005A9DE4 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		E54B4E7C261CB9D700BC195E /* PersonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsView.swift; sourceTree = "<group>"; };
 		E54B4E84261CD88900BC195E /* PersonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListView.swift; sourceTree = "<group>"; };
+		E54B4E89261CF4DA00BC195E /* SponsorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SponsorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		821B95CD2600F7EA0084F792 /* BigEvent */ = {
 			isa = PBXGroup;
 			children = (
+				E54B4E89261CF4DA00BC195E /* SponsorView.swift */,
 				829CED95260B7C7500064B97 /* Models.swift */,
 				829CED8D260B7BD200064B97 /* MyPlayground.playground */,
 				57CA82452618A53900B65AFE /* CalendarView.swift */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E54B4E7D261CB9D700BC195E /* PersonsView.swift in Sources */,
+				E54B4E8A261CF4DA00BC195E /* SponsorView.swift in Sources */,
 				82AB6FC32618BF6B00A89051 /* Data.swift in Sources */,
 				829CED96260B7C7500064B97 /* Models.swift in Sources */,
 				E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */,
