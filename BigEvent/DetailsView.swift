@@ -27,7 +27,7 @@ struct DetailsView: View {
                 if persons.count != 0 {
                     Text("Speakers").font(.title)
                     ForEach(persons) { speaker in
-                        PersonView(activity: speaker).frame(height: 150)
+                        PersonView(person: speaker).frame(height: 150)
                     }
                 }
                 Spacer()

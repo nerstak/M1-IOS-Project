@@ -52,7 +52,7 @@ class Api {
 
     func getAttendees(completion: @escaping ([Person]) -> ()) {
 
-        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Speakers%20%26%20attendees?view=All%20people?api_key=keyuGTkgeGQoidxs6") else {
+        guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Speakers%20%26%20attendees?view=All%20people&api_key=keyuGTkgeGQoidxs6") else {
             return
         }
 

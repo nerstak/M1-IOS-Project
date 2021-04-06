@@ -93,12 +93,14 @@ struct Person: Codable, Identifiable {
 struct PersonFields: Codable {
     var name: String
     var role: String
+    var type : String
     var email: String
     var phone: String
     var company: [String]
 
     enum CodingKeys: String, CodingKey {
         case name = "Name"
+        case type = "Type"
         case role = "Role"
         case email = "Email"
         case phone = "Phone"
@@ -106,7 +108,7 @@ struct PersonFields: Codable {
     }
 
     func isSpeaker() -> Bool {
-        return self.role == "Speaker";
+        return self.type == "Speaker";
     }
 
     func getColor() -> Color {
