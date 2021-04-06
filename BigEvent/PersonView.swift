@@ -39,15 +39,15 @@ struct PersonView: View {
     }
 
 
-    init(activity: Person) {
-        _person = State(initialValue: activity)
+    init(person: Person) {
+        _person = State(initialValue: person)
     }
 }
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        let a = PersonFields(name: "Bob", role: "Speaker", email: "bob@gmail.com", phone: "1111111111", company: ["11234553534"])
+        let a = PersonFields(name: "Bob", role: "VP of Sales", type: "Speaker", email: "bob@gmail.com", phone: "1111111111", company: ["11234553534"])
 
-        PersonView(activity: Person(id: "0", fields: a))
+        PersonView(person: Person(id: "0", fields: a))
     }
 }
