@@ -21,6 +21,7 @@
 		821B95EC2600F7EC0084F792 /* BigEventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B95EB2600F7EC0084F792 /* BigEventUITests.swift */; };
 		829CED96260B7C7500064B97 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CED95260B7C7500064B97 /* Models.swift */; };
 		82AB6FC32618BF6B00A89051 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB6FC22618BF6B00A89051 /* Data.swift */; };
+		82ADB91F261C9B5600A81A5A /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADB91E261C9B5600A81A5A /* APITest.swift */; };
 		E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5120DB42614A587005A9DE4 /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		829CED8D260B7BD200064B97 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		829CED95260B7C7500064B97 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		82AB6FC22618BF6B00A89051 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		82ADB91E261C9B5600A81A5A /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		E5120DB42614A587005A9DE4 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				821B95E02600F7EB0084F792 /* BigEventTests.swift */,
 				821B95E22600F7EB0084F792 /* Info.plist */,
 				57BA3FB1261A151600854362 /* DateFormattingTests.swift */,
+				82ADB91E261C9B5600A81A5A /* APITest.swift */,
 			);
 			path = BigEventTests;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				821B95E12600F7EB0084F792 /* BigEventTests.swift in Sources */,
 				57BA3FB2261A151600854362 /* DateFormattingTests.swift in Sources */,
+				82ADB91F261C9B5600A81A5A /* APITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
