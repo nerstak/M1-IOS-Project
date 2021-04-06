@@ -22,6 +22,7 @@
 		82AB6FC32618BF6B00A89051 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB6FC22618BF6B00A89051 /* Data.swift */; };
 		82ADB91F261C9B5600A81A5A /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADB91E261C9B5600A81A5A /* APITest.swift */; };
 		82ADB944261CA8B000A81A5A /* CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ADB943261CA8B000A81A5A /* CalendarUITests.swift */; };
+		CF1689C5261CA41800AD4D69 /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1689C4261CA41800AD4D69 /* ModelTest.swift */; };
 		E5120DB52614A587005A9DE4 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5120DB42614A587005A9DE4 /* PersonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		82AB6FC22618BF6B00A89051 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		82ADB91E261C9B5600A81A5A /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		82ADB943261CA8B000A81A5A /* CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUITests.swift; sourceTree = "<group>"; };
+		CF1689C4261CA41800AD4D69 /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 		E5120DB42614A587005A9DE4 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				821B95E22600F7EB0084F792 /* Info.plist */,
 				57BA3FB1261A151600854362 /* DateFormattingTests.swift */,
 				82ADB91E261C9B5600A81A5A /* APITest.swift */,
+				CF1689C4261CA41800AD4D69 /* ModelTest.swift */,
 			);
 			path = BigEventTests;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				821B95E12600F7EB0084F792 /* BigEventTests.swift in Sources */,
 				57BA3FB2261A151600854362 /* DateFormattingTests.swift in Sources */,
 				82ADB91F261C9B5600A81A5A /* APITest.swift in Sources */,
+				CF1689C5261CA41800AD4D69 /* ModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
