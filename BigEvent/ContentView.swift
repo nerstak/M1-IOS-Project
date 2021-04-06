@@ -21,7 +21,7 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "calendar")
                 }
-            AttendeesView()
+            PersonsView()
                 .tabItem {
                     Image(systemName: "person.3")
                 

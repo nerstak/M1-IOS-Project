@@ -1,7 +1,8 @@
 import SwiftUI
 
-struct AttendeesView : View {
+struct PersonsView : View {
     @State var attendees: [Person] = []
+    @State var speakers: [Person] = []
     
     var body: some View {
         ScrollView {
@@ -10,17 +11,23 @@ struct AttendeesView : View {
                     PersonView(person: attendee).frame(height: 120)
                 }
             }.onAppear{
-                Api().getAttendees { attendee in
-                    self.attendees = attendee
+                Api().getAttendees { personsList in
+                    personsList.forEach { person in
+                        if( person.fields.isSpeaker() ) {
+                            speakers.append(person)
+                        } else {
+                            attendees.append(person)
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-struct AttendeesView_Previews: PreviewProvider {
+struct PersonsView_Previews: PreviewProvider {
     static var previews: some View {
-        AttendeesView()
+        PersonsView()
     }
 }
 
