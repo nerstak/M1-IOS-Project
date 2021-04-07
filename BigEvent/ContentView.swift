@@ -21,12 +21,12 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "calendar")
                 }
-            Text("Attendees list") // Replace this by AttendeesView
+            PersonsView()
                 .tabItem {
                     Image(systemName: "person.3")
                 
                 }
-            Text("Sponsors list") // Replace this by SponsorsView
+            SponsorsView()
                 .tabItem {
                     Image(systemName: "dollarsign.circle")
                 }

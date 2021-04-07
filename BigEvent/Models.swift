@@ -93,12 +93,14 @@ struct Person: Codable, Identifiable {
 struct PersonFields: Codable {
     var name: String
     var role: String
+    var type : String
     var email: String
     var phone: String
     var company: [String]
 
     enum CodingKeys: String, CodingKey {
         case name = "Name"
+        case type = "Type"
         case role = "Role"
         case email = "Email"
         case phone = "Phone"
@@ -106,7 +108,7 @@ struct PersonFields: Codable {
     }
 
     func isSpeaker() -> Bool {
-        return self.role == "Speaker";
+        return self.type == "Speaker";
     }
 
     func getColor() -> Color {
@@ -115,7 +117,6 @@ struct PersonFields: Codable {
         } else {
             return Color.pink
         }
-
     }
 }
 
@@ -142,18 +143,27 @@ struct Sponsor: Codable, Identifiable {
 }
 
 struct SponsorFields: Codable {
-    var previousSponsor: Bool
     var company: String
     var status: String
-    var sponsoredAmount: Int
-    var notes: String
+    var sponsoredAmount: Int?
 
     enum CodingKeys: String, CodingKey {
-        case previousSponsor = "Previous sponsor"
         case company = "Company"
         case status = "Status"
         case sponsoredAmount = "Sponsored amount"
-        case notes = "Notes"
+    }
+    
+    func getColor() -> Color {
+        switch status {
+        case "Verbal committment to sponsor":
+            return Color.purple
+        case "Pledged $":
+            return Color.yellow
+        case "Received pledged $":
+            return Color.green
+        default:
+            return Color.gray
+        }
     }
 }
 
