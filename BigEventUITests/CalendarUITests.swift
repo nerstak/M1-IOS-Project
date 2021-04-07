@@ -60,6 +60,15 @@ class CalendarUITests: XCTestCase {
         XCTAssert(staticText.isHittable)
     }
     
+    func testAttendeesListSpeakers() throws {
+        let element = app.tabBars.firstMatch.buttons.element(boundBy: 1)
+        element.tap()
+        sleep(3)
+        app.buttons.element(boundBy: 4).tap()
+        let staticText = app.scrollViews.firstMatch.staticTexts["Speakers"]
+        XCTAssert(staticText.isHittable)
+    }
+    
     func testSponsorsList() throws {
         let element = app.tabBars.firstMatch.buttons.element(boundBy: 2)
         element.tap()
