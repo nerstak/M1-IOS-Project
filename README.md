@@ -44,11 +44,13 @@ With this project, users are able to:
 
 - see the list of sponsors of the event (name, amount, status of the sponsoring)
 
+
 ## Installation
 
 Clone the current repository, open it in XCode. Then build and run the project.
 
 ## Demonstration
+[![Demonstration](https://user-images.githubusercontent.com/33179821/113876223-d13a4b80-97b7-11eb-8737-59a682fd8187.jpg)](https://user-images.githubusercontent.com/33179821/113875439-085c2d00-97b7-11eb-9083-c2548883580c.mp4)
 
 ## Tests
 
