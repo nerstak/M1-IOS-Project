@@ -42,7 +42,7 @@ With this project, users are able to:
 
 - see the list of attendees / speakers (with names, email adress, phone number, current corporation and role)
 
-- see the list of sponsors of the event (name, amount, status of the sponsoring)
+- see the list of sponsors of the event, sorted by given amount with different stages (silver, bronze, gold) depending on amount given)
 
 
 ## Installation
