@@ -50,9 +50,8 @@ With this project, users are able to:
 Clone the current repository, open it in XCode. Then build and run the project.
 
 ## Demonstration
-![Demonstration](https://user-images.githubusercontent.com/33179821/113876973-8bca4e00-97b8-11eb-999d-0d9da17adb1e.gif)
 
-Note that fluidity issues are because this demonstration was run from a MacInCloud.
+![Demonstration](https://user-images.githubusercontent.com/33179821/113893950-d1424780-97c7-11eb-9bff-12ad85466db0.gif)
 
 ## Tests
 
