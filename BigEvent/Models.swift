@@ -144,25 +144,20 @@ struct Sponsor: Codable, Identifiable {
 
 struct SponsorFields: Codable {
     var company: String
-    var status: String
     var sponsoredAmount: Int?
 
     enum CodingKeys: String, CodingKey {
         case company = "Company"
-        case status = "Status"
         case sponsoredAmount = "Sponsored amount"
     }
     
     func getColor() -> Color {
-        switch status {
-        case "Verbal committment to sponsor":
-            return Color.purple
-        case "Pledged $":
-            return Color.yellow
-        case "Received pledged $":
-            return Color.green
-        default:
+        if( (sponsoredAmount ?? 0) < 2000) {
+            return Color(red: 0.8, green: 0.5, blue: 0.2)
+        } else if( (sponsoredAmount ?? 0) < 5000 ) {
             return Color.gray
+        } else {
+            return Color.yellow
         }
     }
 }

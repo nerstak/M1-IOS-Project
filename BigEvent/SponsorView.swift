@@ -6,17 +6,11 @@ struct SponsorView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack(alignment: .center) {
-                Text(sponsor.fields.company).fontWeight(.semibold).lineLimit(1)
-                Spacer()
-                Text(sponsor.fields.status).italic().lineLimit(1)
-                // There is always an ammoint sponsored unless the status is a verbal commitment
-                if(sponsor.fields.status != "Verbal committment to sponsor"){
-                    Text(String(sponsor.fields.sponsoredAmount!)).lineLimit(1)
-                }
+                Text(sponsor.fields.company).font(.title2).fontWeight(.semibold).lineLimit(1)
                 //Fill the full width of the screen
             }.padding().frame(minWidth: 0,
                               maxWidth: .infinity,
-                              alignment: .leading
+                              alignment: .center
                       )
                     .background(sponsor.fields.getColor().opacity(0.8))
                     .cornerRadius(15.0)
@@ -31,7 +25,7 @@ struct SponsorView: View {
 
 struct SponsorView_Previews: PreviewProvider {
     static var previews: some View {
-        let s = SponsorFields(company : "SimplySafe", status : "Verbal committment to sponsor")
+        let s = SponsorFields(company : "SimplySafe")
         SponsorView(sponsor : Sponsor(id: "0", fields: s))
     }
 }

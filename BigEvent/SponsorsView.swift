@@ -8,8 +8,13 @@ struct SponsorsView: View {
             // Get the list of sponsors and display each in a view
             VStack(alignment: .center) {
                 Text("Sponsors").font(.title)
-                ForEach(sponsors) { sponsor in
-                    SponsorView(sponsor: sponsor).frame(height: 60)
+                
+                //Sort sponsors by biggest sponsored amount
+                let sponsorSorted = sponsors.sorted{ (lhs: Sponsor, rhs: Sponsor) -> Bool in
+                    return lhs.fields.sponsoredAmount ?? 0 > rhs.fields.sponsoredAmount ?? 0
+                }
+                ForEach(sponsorSorted) { sponsor in
+                    SponsorView(sponsor: sponsor).frame(height: 70)
                 }
             }.onAppear{
                 Api().getSponsors { sponsorList in
