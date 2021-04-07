@@ -8,18 +8,22 @@ struct PersonsView : View {
     
     var body: some View {
         VStack{
-            Picker("Select an appearence", selection: $selection) {
-                Text("Attendees").tag(0)
-                Text("Speakers").tag(1)
-            }.pickerStyle(SegmentedPickerStyle())
+            if (selection != -1) {
+                Picker("Select an appearence", selection: $selection) {
+                    Text("Attendees").tag(0)
+                    Text("Speakers").tag(1)
+                }.pickerStyle(SegmentedPickerStyle())
+            }
 
             // Displays view depending on picked value
             if(selection == 0) {
                 PersonListView(persons: attendees, title: "Attendees")
-            } else {
+            } else if (selection == 1) {
                 PersonListView(persons: speakers, title: "Speakers")
+            } else {
+                Text("loading...")
             }
-        }.onAppear{
+        }.frame(alignment: .top).onAppear{
             Api().getAttendees { personsList in
                 personsList.forEach { person in
                     // Puts speakers in speakers list and attendees in attendees list

@@ -13,8 +13,8 @@ struct PersonListView : View {
                     PersonView(person: person).frame(height: 120)
                 }
             }
-            }
         }
+    }
     
     init(persons: [Person], title : String) {
         _persons = State(initialValue: persons)
