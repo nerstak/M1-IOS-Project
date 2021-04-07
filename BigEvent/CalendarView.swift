@@ -65,7 +65,7 @@ struct CalendarView: View {
                         }
                     }
                 }
-            }
+            }.padding(.bottom, 10)
             .navigationBarTitle(Text("Calendar"), displayMode: .inline)
         }
     }

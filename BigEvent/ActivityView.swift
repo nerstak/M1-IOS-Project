@@ -50,7 +50,8 @@ struct ActivityView: View {
                     // Color matching type of activity
                     .background(activity.fields.getColor().opacity(0.8))
                     .cornerRadius(15.0)
-                    .padding(.all, 10)
+                    .padding(.top, 5).padding(.bottom, 5)
+
 
             // ZStack for small notification "Live"
             ZStack {
@@ -59,7 +60,7 @@ struct ActivityView: View {
                 Text("Live").foregroundColor(.white)
             }
                     .frame(width: 40, height: 15)
-                    .offset(x: geometry.size.width - 40, y: 5)
+                    .offset(x: geometry.size.width - 30, y: 0)
                     // We only display notification "Live" if we are between end & start date
                     .opacity(df.convertToDate(string: activity.fields.end) > Date() &&
                             df.convertToDate(string: activity.fields.start) < Date()
