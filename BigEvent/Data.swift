@@ -15,9 +15,11 @@ class Api {
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Schedule.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.records)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Schedule.self, from: data))?.records ?? []
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }
@@ -29,9 +31,11 @@ class Api {
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Topic.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.fields.topic)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Topic.self, from: data))?.fields.topic ?? ""
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }
@@ -43,9 +47,11 @@ class Api {
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Location.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.fields.spaceName)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Location.self, from: data))?.fields.spaceName ?? ""
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }
@@ -57,14 +63,16 @@ class Api {
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Persons.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.records)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Persons.self, from: data))?.records ?? []
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }
 
-    func getPerson(idPerson: String, completion: @escaping (Person) -> ()) {
+    func getPerson(idPerson: String, completion: @escaping (Person?) -> ()) {
 
         guard let url = URL(string: "https://api.airtable.com/v0/appXKn0DvuHuLw4DV/Speakers%20%26%20attendees/\(idPerson)?api_key=keyuGTkgeGQoidxs6") else {
             return
@@ -72,9 +80,11 @@ class Api {
 
         URLSession.shared.dataTask(with: url) {
             (data, _, _) in
-            let response = try! JSONDecoder().decode(Person.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Person.self, from: data))
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
 
         }.resume()
@@ -86,10 +96,12 @@ class Api {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Company.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.fields.company)
+        URLSession.shared.dataTask(with: url)  {(data , _, _) in
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Company.self, from: data))?.fields.company ?? ""
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }
@@ -101,9 +113,11 @@ class Api {
         }
 
         URLSession.shared.dataTask(with: url) { (data, _, _) in
-            let response = try! JSONDecoder().decode(Sponsors.self, from: data!)
-            DispatchQueue.main.async {
-                completion(response.records)
+            if let data = data {
+                let response = (try? JSONDecoder().decode(Sponsors.self, from: data))?.records ?? []
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }
         }.resume()
     }

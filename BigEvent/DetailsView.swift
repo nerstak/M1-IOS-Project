@@ -16,7 +16,9 @@ struct DetailsView: View {
                     if let personsIds = activity.fields.speakerIds {
                         personsIds.forEach { personsId in
                             Api().getPerson(idPerson: personsId) { p in
-                                self.persons.append(p)
+                                if let p = p {
+                                    self.persons.append(p)
+                                }
                             }
                         }
                     }
