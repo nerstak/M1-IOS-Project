@@ -29,27 +29,28 @@ class ModelTest: XCTestCase{
         XCTAssertEqual(topic.fields.topic,"Welcome to HomeTech 2019!")
     }
     func testInitPerson(){
-        let field : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
+        let field : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager",type:"Speaker", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
         let record : Person = Person(id: "recYFwGSFyMK0IXkO", fields: field)
         let persons : Persons = Persons(records: [record])
         
         XCTAssertEqual(persons.records[0].id, "recYFwGSFyMK0IXkO")
         XCTAssertEqual(persons.records[0].fields.name, "Belinda Chen")
         XCTAssertEqual(persons.records[0].fields.role, "Product manager")
+        XCTAssertEqual(persons.records[0].fields.type, "Speaker")
         XCTAssertEqual(persons.records[0].fields.email, "belinda@email.com")
         XCTAssertEqual(persons.records[0].fields.phone, "(123) 456-7890")
         XCTAssertEqual(persons.records[0].fields.company[0], "rec85MXeafiZSqdWr")
     }
     func testIsSpeakerPersonFields(){
-        let product_manager : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
-        let speaker : PersonFields = PersonFields(name: "Belinda Chen", role: "Speaker", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
+        let attendee : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager", type:"Attendee", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
+        let speaker : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager",type:"Speaker", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
         XCTAssertTrue(speaker.isSpeaker())
-        XCTAssertFalse(product_manager.isSpeaker())
+        XCTAssertFalse(attendee.isSpeaker())
     }
     func testGetColorPersonFields(){
-        let product_manager : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
-        let speaker : PersonFields = PersonFields(name: "Belinda Chen", role: "Speaker", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
-        XCTAssertEqual(product_manager.getColor(), Color.pink)
+        let attendee : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager", type:"Attendee", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
+        let speaker : PersonFields = PersonFields(name: "Belinda Chen", role: "Product manager",type:"Speaker", email: "belinda@email.com", phone: "(123) 456-7890", company: ["rec85MXeafiZSqdWr"])
+        XCTAssertEqual(attendee.getColor(), Color.pink)
         XCTAssertEqual(speaker.getColor(), Color.blue)
     }
     func testGetColorActivityFields(){

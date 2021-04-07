@@ -37,7 +37,6 @@ struct DetailsView: View {
     init(activity: Activity, title: String) {
         _activity = State(initialValue: activity)
         _title = State(initialValue: title)
-        body.accessibilityIdentifier("detailsView")
     }
 
 }

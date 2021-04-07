@@ -21,7 +21,7 @@ class CalendarUITests: XCTestCase {
     func testExample() throws {
         var response = app.scrollViews.firstMatch.descendants(matching: .button).firstMatch
         response.tap()
-        response = app.otherElements["detailsView"]
+        response = app.scrollViews.staticTexts["Activity informations"]
         XCTAssert(response.exists)
     }
 

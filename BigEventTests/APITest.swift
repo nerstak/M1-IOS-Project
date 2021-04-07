@@ -42,7 +42,7 @@ class APITest: XCTestCase {
     
     func testGetPerson() throws {
         Api().getPerson(idPerson: "recYFwGSFyMK0IXkO") { person in
-            XCTAssertEqual("belinda@email.com", person.fields.email)
+            XCTAssertEqual("belinda@email.com", person?.fields.email)
         }
     }
     
