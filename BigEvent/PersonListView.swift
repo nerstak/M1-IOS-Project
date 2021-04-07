@@ -14,7 +14,7 @@ struct PersonListView : View {
                 }
             }
         }
-        }
+    }
     
     init(persons: [Person], title : String) {
         _persons = State(initialValue: persons)
