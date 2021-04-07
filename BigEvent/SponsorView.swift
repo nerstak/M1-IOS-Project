@@ -8,7 +8,7 @@ struct SponsorView: View {
             HStack(alignment: .center) {
                 Text(sponsor.fields.company).fontWeight(.semibold).lineLimit(1)
                 Spacer()
-                Text(sponsor.fields.status).italic().lineLimit(2)
+                Text(sponsor.fields.status).italic().lineLimit(1)
                 // There is always an ammoint sponsored unless the status is a verbal commitment
                 if(sponsor.fields.status != "Verbal committment to sponsor"){
                     Text(String(sponsor.fields.sponsoredAmount!)).lineLimit(1)

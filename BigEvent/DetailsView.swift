@@ -12,7 +12,7 @@ struct DetailsView: View {
             VStack(alignment: .center) {
                 // Main informations
                 Text("Activity informations").font(.title)
-                ActivityView(activity: activity).frame(height: 150).onAppear {
+                ActivityView(activity: activity).frame(height: 150).padding().onAppear {
                     if let personsIds = activity.fields.speakerIds {
                         personsIds.forEach { personsId in
                             Api().getPerson(idPerson: personsId) { p in
