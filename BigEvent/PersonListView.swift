@@ -10,10 +10,10 @@ struct PersonListView : View {
             VStack(alignment:.center) {
                 Text(title).font(.title)
                 ForEach(persons) { person in
-                    PersonView(person: person).frame(height: 120)
+                    PersonView(person: person).frame(height: 130)
                 }
             }
-            }
+        }
         }
     
     init(persons: [Person], title : String) {

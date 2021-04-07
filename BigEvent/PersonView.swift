@@ -34,7 +34,7 @@ struct PersonView: View {
             }.padding()
                     .background(person.fields.getColor().opacity(0.8))
                     .cornerRadius(15.0)
-                    .padding(.all, 10)
+            .padding()
         }
     }
 

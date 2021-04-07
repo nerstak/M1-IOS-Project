@@ -9,7 +9,7 @@ struct SponsorsView: View {
             VStack(alignment: .center) {
                 Text("Sponsors").font(.title)
                 ForEach(sponsors) { sponsor in
-                    SponsorView(sponsor: sponsor).frame(height: 95)
+                    SponsorView(sponsor: sponsor).frame(height: 60)
                 }
             }.onAppear{
                 Api().getSponsors { sponsorList in
